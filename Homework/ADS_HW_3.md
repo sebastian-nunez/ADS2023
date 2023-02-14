@@ -167,3 +167,40 @@ def can_divide(nums):
 # print(can_divide([5,3, 8])) # false
 # print(can_divide([3,3])) # false
 ```
+
+## Tracing
+
+Where can we find your tracing solutions?
+
+I've attatched PDFs for each solution.
+
+## Time/Space Complexity
+
+### Generate Subsets
+
+- **Time:** O(2^n) where `n` is the length of `nums`. Everytime the helper function runs, we have **2 choices**: include the current number or not include it. As a result, as the depth of recursion increases, for every level, we double the number of nodes from the previous level.
+- **Space:** O(n^2) where `n` is the length of `nums`. For every recursive call, we need enough space to store a tuple containing at most `n` elements (all elements of `nums`); moreover, the maximum number of stack frames will be `n` (the subset containing all numbers present in `nums`). Naturally, if each stack frame requires `n` space and we have `n` recursive calls (at most), the space required is O(n^2).
+
+### Count Expressions
+
+- **Time:** O(3^n) where `n` is the length of `nums`. Everytime the helper function runs, we have **3 choices**: add, substract or multiply. As a result, as the depth of recursion increases, for every level, we **TRIPLE** the number of nodes from the previous level.
+- **Space:** O(n), where `n` is the length of `nums`. At most, we have `n` stack frames (1 for every level) and each frame takes O(1) time (we only use simple variables, no lists, tuples, dicts etc).
+
+### Can Divide
+
+- **Time:** O(n \* 2^n)where `n` is the length of `nums`. Everytime the helper function runs, we have at most **2 choices** to make: include the current number in group1 or include it in group2. As a result, as the depth of recursion increases, for every level, we **double** the number of nodes from the previous level (at most); moreover, each recursive call takes O(n) time (to calculate the `sum(current)` -> which contains at most all numbers in present in `nums`)
+- **Space:** O(n), where `n` is the length of `nums`. At most, we have `n` stack frames (1 for every level) and each frame takes O(1) time (we only use simple variables, no lists, tuples, dicts etc).
+
+## Skill Development
+
+- I think my ability to recognize the structure of recursive/backtracking problems has greatly improved. At the moment, I can read a problem and figure out if I'm going to need a branching structure or perhaps a helper function for backtracking problems. By solving all the class activities, I was able to get a grasp on the formula for different types of problems. For instance, if a problem requires a list containing the lists of possibilities, I know I will need a way to persist an 'output' list while working through individual possibilities.
+- I learned that there will often be a few different base cases for recursive problems. For most of my problems, I indexed through an list, so, one of my base cases was making sure the current index was inbounds. However, there were individual base cases for each problem. For `count_expressions` I had to make sure the current total was equal to the target total.
+
+## Self-Assessment and Recognition of Skill Importance
+
+- Overall, I'm extremely comfortable solving these types of problems. Although, I think it's important to work on them on stages. For instance, when solving `can_divide` I felt extremely lost. Nevertheless, once I broke it down, it was really just a matter of accounting for 3 scenarios.
+- I think I need to work on analyzing the time complexity of recursive algorithms. Naturally, they can be hard to wrap your head around. However, if I draw them out, it can be a lot of easier to vizualize and understand how they are growing.
+
+## Guiding Questions
+
+- I've realized that recursive problems can have different return values depending on the problem. For instance, if a problem is asking for 'count the number of times X things happens under Y conditions', it's probably best to return 1 for each successful occurence and return 0 for unfavorable events; moreover, if a problem has multiple ways/branches, I can just return the sum of each individual events. Or for a problem that requires to know if 'a' solution exists, I can just return a Boolean.
