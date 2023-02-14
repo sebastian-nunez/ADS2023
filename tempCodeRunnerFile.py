@@ -1,1 +1,0 @@
-    subCopy = subset[:]
