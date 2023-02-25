@@ -94,3 +94,5 @@ print(hashmap.get(0))
 print(hashmap.remove(1))
 print(hashmap)
 print(hashmap.get(1))
+
+#%%
